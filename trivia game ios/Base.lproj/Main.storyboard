@@ -1,24 +1,479 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad12_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Guess View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GuessViewController" customModule="trivia_game_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2G-95-73I">
+                                <rect key="frame" x="431.5" y="720.5" width="161" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Answer 1"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6m-sT-QoE">
+                                <rect key="frame" x="431.5" y="850.5" width="161" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Answer 2"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t29-9R-R6i">
+                                <rect key="frame" x="431" y="991" width="162" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Answer 3"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eM5-O0-Rmx">
+                                <rect key="frame" x="878" y="40" width="136" height="79"/>
+                                <state key="normal" title="Reset"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                </variation>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hv1-b5-tFB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loY-5f-Qlp">
+                                <rect key="frame" x="503.5" y="40" width="350" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="1wf-r6-PFJ">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="350"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="Add Question"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="c2g-pU-QCj" kind="presentation" id="hku-72-YxM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8K2-tr-vZD">
+                                <rect key="frame" x="30" y="30" width="150" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5LN-hd-dkY">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="70" id="s0a-R0-95f">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                    </constraint>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="score">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="SignPainter-HouseScript"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <attributedString key="attributedText">
+                                        <fragment content="score">
+                                            <attributes>
+                                                <font key="NSFont" size="72" name="SignPainter-HouseScript"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i1-gJ-Lng">
+                                <rect key="frame" x="431" y="1128" width="162" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Answer 4"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWL-Pa-B0N">
+                                <rect key="frame" x="0.0" y="95" width="1024" height="546.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Question">
+                                        <attributes>
+                                            <font key="NSFont" size="144" name="SignPainter-HouseScript"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <attributedString key="attributedText">
+                                        <fragment content="Question">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="SignPainter-HouseScript"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <attributedString key="attributedText">
+                                        <fragment content="Question">
+                                            <attributes>
+                                                <font key="NSFont" size="64" name="SignPainter-HouseScript"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="E2G-95-73I" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2tk-HX-Tf3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CWL-Pa-B0N" secondAttribute="trailing" id="2yd-vq-hV3"/>
+                            <constraint firstItem="CWL-Pa-B0N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="4oq-bH-Jlj"/>
+                            <constraint firstItem="5i1-gJ-Lng" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="66d-FV-IcG"/>
+                            <constraint firstItem="CWL-Pa-B0N" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="ETj-Fm-Svo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t29-9R-R6i" secondAttribute="bottom" multiplier="1.3" id="F78-Q7-wth"/>
+                            <constraint firstItem="eM5-O0-Rmx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="2" id="HAz-XO-3eo"/>
+                            <constraint firstItem="CWL-Pa-B0N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HCc-mG-IfP"/>
+                            <constraint firstItem="t29-9R-R6i" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HlW-Nu-XRI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="u6m-sT-QoE" secondAttribute="bottom" multiplier="1.5" id="J9F-h2-KLp"/>
+                            <constraint firstItem="u6m-sT-QoE" firstAttribute="width" secondItem="E2G-95-73I" secondAttribute="width" id="KCi-gj-vct"/>
+                            <constraint firstItem="loY-5f-Qlp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="2" id="Pak-ic-pKh"/>
+                            <constraint firstItem="u6m-sT-QoE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="QRB-Mv-fX5"/>
+                            <constraint firstItem="8K2-tr-vZD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="R48-P4-xDy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="loY-5f-Qlp" secondAttribute="trailing" multiplier="1.2" id="URs-Nc-uRF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eM5-O0-Rmx" secondAttribute="trailing" constant="10" id="Z79-bN-g0L"/>
+                            <constraint firstItem="t29-9R-R6i" firstAttribute="width" secondItem="5i1-gJ-Lng" secondAttribute="width" id="bzB-K7-VuB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="E2G-95-73I" secondAttribute="bottom" multiplier="1.75" id="hSd-GX-GpP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5i1-gJ-Lng" secondAttribute="bottom" multiplier="1.15" id="lzo-yY-BX1"/>
+                            <constraint firstItem="8K2-tr-vZD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="wUZ-w9-F4l"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="addQuestionButton" destination="loY-5f-Qlp" id="rH6-vv-ff0"/>
+                        <outlet property="answer1Button" destination="E2G-95-73I" id="e90-bT-mPv"/>
+                        <outlet property="answer2Button" destination="u6m-sT-QoE" id="dd4-8p-Ejh"/>
+                        <outlet property="answer3Button" destination="t29-9R-R6i" id="Nqj-kb-j9b"/>
+                        <outlet property="answer4Button" destination="5i1-gJ-Lng" id="N3c-gu-hjm"/>
+                        <outlet property="questionLabel" destination="CWL-Pa-B0N" id="rPP-tZ-SpV"/>
+                        <outlet property="resetButton" destination="eM5-O0-Rmx" id="OSB-gD-udt"/>
+                        <outlet property="scoreLabel" destination="8K2-tr-vZD" id="zUD-ak-dWz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="31.884057971014496" y="34.239130434782609"/>
+        </scene>
+        <!--Create Question View Controller-->
+        <scene sceneID="Pzg-so-IaH">
+            <objects>
+                <viewController id="c2g-pU-QCj" customClass="createQuestionViewController" customModule="trivia_game_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uwu-De-P1d">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="baX-Tn-ych">
+                                <rect key="frame" x="20" y="1288" width="984" height="29"/>
+                                <segments>
+                                    <segment title="A"/>
+                                    <segment title="B"/>
+                                    <segment title="C"/>
+                                    <segment title="D"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmB-Uv-bHx">
+                                <rect key="frame" x="20" y="30" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HaE-Dw-x6g"/>
+                                    <constraint firstAttribute="width" constant="50" id="kd0-3i-L8c">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="cancel"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="56"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="c2g-pU-QCj" eventType="touchUpInside" id="78E-h3-449"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7i-eV-0bd">
+                                <rect key="frame" x="854" y="30" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YGE-He-pLa"/>
+                                    <constraint firstAttribute="width" constant="40" id="fQK-AK-yiQ">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Done"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="56"/>
+                                </variation>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="c2g-pU-QCj" eventType="touchUpInside" id="PtS-Lo-Lqb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-PZ-OD5">
+                                <rect key="frame" x="40" y="80" width="200" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rty-rb-hvO">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="120" id="t3T-yQ-6No">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Question">
+                                        <attributes>
+                                            <font key="NSFont" size="36" name="SignPainter-HouseScript"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <attributedString key="attributedText">
+                                        <fragment content="Question">
+                                            <attributes>
+                                                <font key="NSFont" size="72" name="SignPainter-HouseScript"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hym-Da-is6">
+                                <rect key="frame" x="40" y="486.5" width="210" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="1EP-8p-WXX">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="70" id="Dkl-g8-wfc">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="210"/>
+                                    </constraint>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="answer 1">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="SignPainter-HouseScript"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <attributedString key="attributedText">
+                                        <fragment content="answer 1">
+                                            <attributes>
+                                                <font key="NSFont" size="64" name="SignPainter-HouseScript"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="answer 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qG-9F-YSF">
+                                <rect key="frame" x="40" y="623" width="210" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="1oW-wl-cqx">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="70" id="GCr-YX-49r">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="210"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SignPainter-HouseScript" family="SignPainter" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="SignPainter-HouseScript" family="SignPainter" pointSize="64"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="answer 3 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1S-ao-UYa">
+                                <rect key="frame" x="40" y="743.5" width="210" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="CNZ-Tv-tSA"/>
+                                    <constraint firstAttribute="height" constant="20" id="meP-PB-gDS">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SignPainter-HouseScript" family="SignPainter" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="SignPainter-HouseScript" family="SignPainter" pointSize="64"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="answer 4 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlR-K4-cim">
+                                <rect key="frame" x="40" y="870.5" width="210" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="11V-ig-Ezu">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="210"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="20" id="cK4-29-oDX">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SignPainter-HouseScript" family="SignPainter" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="SignPainter-HouseScript" family="SignPainter" pointSize="64"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Answer B" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfw-Mp-tec">
+                                <rect key="frame" x="40" y="698.5" width="700" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="sFl-l7-fbQ">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="700"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="20" id="uhW-d9-Bpe">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                    </constraint>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SignPainter-HouseScript" family="SignPainter" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Answer C" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hwo-3x-132">
+                                <rect key="frame" x="40" y="814" width="700" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Nrz-Hn-SXs">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="350" id="Zb0-D0-ss0">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="700"/>
+                                    </constraint>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SignPainter-HouseScript" family="SignPainter" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Answer D" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BcD-QC-For">
+                                <rect key="frame" x="40" y="935.5" width="700" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="rLX-Kb-oC0">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="700"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="20" id="ts3-ht-hb1">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                    </constraint>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SignPainter-HouseScript" family="SignPainter" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTH-5l-f1r">
+                                <rect key="frame" x="40" y="567" width="700" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="TH8-Dy-3ui">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="350" id="zA9-Xr-Gjj">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="700"/>
+                                    </constraint>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Answer A">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="SignPainter-HouseScript"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <attributedString key="attributedText">
+                                        <fragment content="Answer A">
+                                            <attributes>
+                                                <font key="NSFont" size="36" name="SignPainter-HouseScript"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </variation>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXK-JQ-r6B">
+                                <rect key="frame" x="62" y="168" width="900" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Ihb-or-rQo">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="900" id="QCy-zE-Wy6">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="300"/>
+                                    </constraint>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Question text">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="SignPainter-HouseScript"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3qG-9F-YSF" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="40" id="0Fs-pJ-qng"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="bottom" secondItem="Hym-Da-is6" secondAttribute="bottom" multiplier="2.5" id="3NO-Lg-2xp"/>
+                            <constraint firstItem="NmB-Uv-bHx" firstAttribute="top" secondItem="cEg-dE-cfI" secondAttribute="top" constant="10" id="7U7-nQ-bEH"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="bottom" secondItem="Hwo-3x-132" secondAttribute="bottom" multiplier="1.6" id="Aar-gR-21K"/>
+                            <constraint firstItem="Hwo-3x-132" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="40" id="BE6-Yz-zdc"/>
+                            <constraint firstItem="BcD-QC-For" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="40" id="Cni-I7-5xb"/>
+                            <constraint firstItem="baX-Tn-ych" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="20" id="HN0-RY-znA"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="bottom" secondItem="BcD-QC-For" secondAttribute="bottom" multiplier="1.4" id="HgT-8L-qL2"/>
+                            <constraint firstItem="g1S-ao-UYa" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="40" id="PW2-RR-djq"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="bottom" secondItem="baX-Tn-ych" secondAttribute="bottom" constant="50" id="S9L-Hh-Vmq"/>
+                            <constraint firstItem="tlR-K4-cim" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="40" id="ViS-o9-ii8"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="trailing" secondItem="baX-Tn-ych" secondAttribute="trailing" constant="20" id="Zs2-zL-xF0"/>
+                            <constraint firstItem="Hym-Da-is6" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="40" id="aI2-Ip-ZNp"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="bottom" secondItem="sfw-Mp-tec" secondAttribute="bottom" multiplier="1.85" id="bIj-Jx-E14"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="bottom" secondItem="g1S-ao-UYa" secondAttribute="bottom" multiplier="1.7" id="bkS-Qt-LFL"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="bottom" secondItem="cTH-5l-f1r" secondAttribute="bottom" multiplier="2.25" id="c34-RU-iwE"/>
+                            <constraint firstItem="hXK-JQ-r6B" firstAttribute="top" secondItem="rhB-PZ-OD5" secondAttribute="bottom" multiplier="1.2" id="cwd-JY-kOF"/>
+                            <constraint firstItem="NmB-Uv-bHx" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="20" id="d1x-1y-HLA"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="bottom" secondItem="3qG-9F-YSF" secondAttribute="bottom" multiplier="2" id="dQa-0x-t2d"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="bottom" secondItem="tlR-K4-cim" secondAttribute="bottom" multiplier="1.5" id="h3p-ih-yXe"/>
+                            <constraint firstItem="rhB-PZ-OD5" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="40" id="k6U-Lf-dZ8"/>
+                            <constraint firstItem="cTH-5l-f1r" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="40" id="laj-O0-pvm"/>
+                            <constraint firstItem="cEg-dE-cfI" firstAttribute="trailing" secondItem="y7i-eV-0bd" secondAttribute="trailing" constant="20" id="nju-83-soP"/>
+                            <constraint firstItem="hXK-JQ-r6B" firstAttribute="centerX" secondItem="cEg-dE-cfI" secondAttribute="centerX" id="okz-AJ-deD"/>
+                            <constraint firstItem="sfw-Mp-tec" firstAttribute="leading" secondItem="cEg-dE-cfI" secondAttribute="leading" constant="40" id="q8n-iJ-3FZ"/>
+                            <constraint firstItem="rhB-PZ-OD5" firstAttribute="top" secondItem="cEg-dE-cfI" secondAttribute="top" multiplier="4" id="th2-vh-C0J"/>
+                            <constraint firstItem="y7i-eV-0bd" firstAttribute="top" secondItem="cEg-dE-cfI" secondAttribute="top" constant="10" id="zhf-bU-fUN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cEg-dE-cfI"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerATextField" destination="cTH-5l-f1r" id="wuu-yV-07p"/>
+                        <outlet property="answerBTextfield" destination="sfw-Mp-tec" id="SIO-tJ-xdC"/>
+                        <outlet property="answerCTextField" destination="Hwo-3x-132" id="gQ8-v0-9lo"/>
+                        <outlet property="answerDTextField" destination="BcD-QC-For" id="xju-Vk-7Yw"/>
+                        <outlet property="cancelButton" destination="NmB-Uv-bHx" id="rHf-py-H7T"/>
+                        <outlet property="doneButton" destination="y7i-eV-0bd" id="IcB-oh-5bY"/>
+                        <outlet property="questionTextView" destination="hXK-JQ-r6B" id="0Mp-iR-JH0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGM-lu-aXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="34"/>
         </scene>
     </scenes>
 </document>

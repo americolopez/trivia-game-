@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		35619FAC20602E8100FDC4B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35619FAB20602E8100FDC4B3 /* AppDelegate.swift */; };
-		35619FAE20602E8100FDC4B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35619FAD20602E8100FDC4B3 /* ViewController.swift */; };
 		35619FB120602E8100FDC4B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35619FAF20602E8100FDC4B3 /* Main.storyboard */; };
 		35619FB320602E8100FDC4B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35619FB220602E8100FDC4B3 /* Assets.xcassets */; };
 		35619FB620602E8100FDC4B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35619FB420602E8100FDC4B3 /* LaunchScreen.storyboard */; };
+		35619FBE2060467D00FDC4B3 /* GuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35619FBD2060467D00FDC4B3 /* GuessViewController.swift */; };
+		35619FC0206046BE00FDC4B3 /* createQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35619FBF206046BE00FDC4B3 /* createQuestionViewController.swift */; };
+		35E0035920642F290083D668 /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E0035820642F290083D668 /* Guess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35619FA820602E8100FDC4B3 /* trivia game ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "trivia game ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35619FAB20602E8100FDC4B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35619FAD20602E8100FDC4B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		35619FB020602E8100FDC4B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35619FB220602E8100FDC4B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35619FB520602E8100FDC4B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35619FB720602E8100FDC4B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35619FBD2060467D00FDC4B3 /* GuessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessViewController.swift; sourceTree = "<group>"; };
+		35619FBF206046BE00FDC4B3 /* createQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createQuestionViewController.swift; sourceTree = "<group>"; };
+		35E0035820642F290083D668 /* Guess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				35619FAB20602E8100FDC4B3 /* AppDelegate.swift */,
-				35619FAD20602E8100FDC4B3 /* ViewController.swift */,
+				35619FBD2060467D00FDC4B3 /* GuessViewController.swift */,
+				35619FBF206046BE00FDC4B3 /* createQuestionViewController.swift */,
+				35E0035820642F290083D668 /* Guess.swift */,
 				35619FAF20602E8100FDC4B3 /* Main.storyboard */,
 				35619FB220602E8100FDC4B3 /* Assets.xcassets */,
 				35619FB420602E8100FDC4B3 /* LaunchScreen.storyboard */,
@@ -136,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35619FAE20602E8100FDC4B3 /* ViewController.swift in Sources */,
+				35619FBE2060467D00FDC4B3 /* GuessViewController.swift in Sources */,
+				35E0035920642F290083D668 /* Guess.swift in Sources */,
+				35619FC0206046BE00FDC4B3 /* createQuestionViewController.swift in Sources */,
 				35619FAC20602E8100FDC4B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
