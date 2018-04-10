@@ -257,6 +257,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="c2g-pU-QCj" eventType="touchUpInside" id="PtS-Lo-Lqb"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="guesssScreen" id="a5F-F6-lh6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-PZ-OD5">
@@ -553,6 +554,7 @@
                         <outlet property="cancelButton" destination="NmB-Uv-bHx" id="rHf-py-H7T"/>
                         <outlet property="doneButton" destination="y7i-eV-0bd" id="IcB-oh-5bY"/>
                         <outlet property="questionTextView" destination="hXK-JQ-r6B" id="0Mp-iR-JH0"/>
+                        <outlet property="segmentedControl" destination="baX-Tn-ych" id="xqt-eK-mgc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGM-lu-aXw" userLabel="First Responder" sceneMemberID="firstResponder"/>

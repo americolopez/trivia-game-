@@ -95,7 +95,19 @@ class GuessViewController: UIViewController {
         score = 0
     }
         @IBAction func resetButtonTapped(_ sender: Any) {
-    
+            let alertview = UIAlertController(title: "reset" ,message: "are you sure you want to reset the game!?", preferredStyle: .alert)
+            let yesAction = UIAlertAction (title: "yes" , style: .default, handler: { action in
+            self.questions = self.askedQuestions
+            self.score = 0
+            self.askedQuestions = []
+            self.generateQuestiontext()
+            })
+            let noAction = UIAlertAction(title : "no" , style: .default, handler: { action in
+                self.dismiss(animated: true, completion: nil)
+            })
+                alertview.addAction(yesAction)
+                alertview.addAction(noAction)
+            self.present(alertview, animated: true, completion: nil)
     }
 
     @IBAction func answerButtonTapped(_ sender: Any) {
